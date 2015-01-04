@@ -44,7 +44,7 @@ The preferred way to install this library is to rely on Composer:
     {
         "require": {
             // ...
-            "spomky-labs/pbkdf2": "dev-master"
+            "spomky-labs/pbkdf2": "~0.0"
         }
     }
 
