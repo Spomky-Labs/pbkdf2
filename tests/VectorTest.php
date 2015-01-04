@@ -16,7 +16,7 @@ class VectorTest extends \PHPUnit_Framework_TestCase
         $salt      = "salt";
         $count     = 1;
         $dkLen     = 20;
-        $expected  = hex2bin("0c60c80f961f0e71f3a9b524af6012062fe037a6");
+        $expected  = pack("H*" ,"0c60c80f961f0e71f3a9b524af6012062fe037a6");
 
         $this->assertSame($expected, PBKDF2::deriveKey($algorithm, $password, $salt, $count, $dkLen));
     }
@@ -28,7 +28,7 @@ class VectorTest extends \PHPUnit_Framework_TestCase
         $salt      = "salt";
         $count     = 2;
         $dkLen     = 20;
-        $expected  = hex2bin("ea6c014dc72d6f8ccd1ed92ace1d41f0d8de8957");
+        $expected  = pack("H*" ,"ea6c014dc72d6f8ccd1ed92ace1d41f0d8de8957");
 
         $this->assertSame($expected, PBKDF2::deriveKey($algorithm, $password, $salt, $count, $dkLen));
     }
@@ -40,7 +40,7 @@ class VectorTest extends \PHPUnit_Framework_TestCase
         $salt      = "salt";
         $count     = 4096;
         $dkLen     = 20;
-        $expected  = hex2bin("4b007901b765489abead49d926f721d065a429c1");
+        $expected  = pack("H*" ,"4b007901b765489abead49d926f721d065a429c1");
 
         $this->assertSame($expected, PBKDF2::deriveKey($algorithm, $password, $salt, $count, $dkLen));
     }
@@ -52,7 +52,7 @@ class VectorTest extends \PHPUnit_Framework_TestCase
         $salt      = "salt";
         $count     = 16777216;
         $dkLen     = 20;
-        $expected  = hex2bin("eefe3d61cd4da4e4e9945b3d6ba2158c2634e984");
+        $expected  = pack("H*" ,"eefe3d61cd4da4e4e9945b3d6ba2158c2634e984");
 
         $this->assertSame($expected, PBKDF2::deriveKey($algorithm, $password, $salt, $count, $dkLen));
     }
@@ -64,7 +64,7 @@ class VectorTest extends \PHPUnit_Framework_TestCase
         $salt      = "saltSALTsaltSALTsaltSALTsaltSALTsalt";
         $count     = 4096;
         $dkLen     = 25;
-        $expected  = hex2bin("3d2eec4fe41c849b80c8d83662c0e44a8b291a964cf2f07038");
+        $expected  = pack("H*" ,"3d2eec4fe41c849b80c8d83662c0e44a8b291a964cf2f07038");
 
         $this->assertSame($expected, PBKDF2::deriveKey($algorithm, $password, $salt, $count, $dkLen));
     }
@@ -76,7 +76,7 @@ class VectorTest extends \PHPUnit_Framework_TestCase
         $salt      = "sa\x00lt";
         $count     = 4096;
         $dkLen     = 16;
-        $expected  = hex2bin("56fa6aa75548099dcc37d7f03425e0c3");
+        $expected  = pack("H*" ,"56fa6aa75548099dcc37d7f03425e0c3");
 
         $this->assertSame($expected, PBKDF2::deriveKey($algorithm, $password, $salt, $count, $dkLen));
     }
