@@ -11,14 +11,16 @@ class PBKDF2
      * PBKDF2 key derivation function as defined by RSA's PKCS #5: RFC 2898
      * Test vectors can be found i the RFC 6070
      * This implementation of PBKDF2 was originally created by defuse.ca
-     * With improvements by variations-of-shadow.com
+     * With improvements by variations-of-shadow.com.
      *
-     * @param  string                    $algorithm  The hash algorithm to use. For supported hash algorithms, see hash_algos().
-     * @param  string                    $password   The password.
-     * @param  string                    $salt       A salt that is unique to the password.
-     * @param  integer                   $count      Iteration count. Higher is better, but slower.
-     * @param  integer                   $key_length The length of the derived key in bytes.
-     * @return string                    A $key_length-byte key derived from the password and salt.
+     * @param string  $algorithm  The hash algorithm to use. For supported hash algorithms, see hash_algos().
+     * @param string  $password   The password.
+     * @param string  $salt       A salt that is unique to the password.
+     * @param integer $count      Iteration count. Higher is better, but slower.
+     * @param integer $key_length The length of the derived key in bytes.
+     *
+     * @return string A $key_length-byte key derived from the password and salt.
+     *
      * @throws \InvalidArgumentException If algorithm is not supported or if count/key_length parameter are not valid.
      *
      * @see https://www.ietf.org/rfc/rfc2898.txt
