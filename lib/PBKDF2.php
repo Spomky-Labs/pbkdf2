@@ -18,7 +18,7 @@ class PBKDF2
      * @param string $salt       A salt that is unique to the password.
      * @param int    $count      Iteration count. Higher is better, but slower.
      * @param int    $key_length The length of the derived key in bytes.
-     * @param bool   $raw_output If true, the result is in binary format, else en hex.
+     * @param bool   $raw_output If true, the result is in binary format, else in hex. Default is false
      *
      * @return string A $key_length-byte key derived from the password and salt.
      *
@@ -28,14 +28,13 @@ class PBKDF2
      * @see https://www.ietf.org/rfc/rfc6070.txt
      * @see http://php.net/manual/en/function.hash-hmac.php
      */
-    public static function pbkdf2($algorithm, $password, $salt, $count, $key_length, $raw_output = false)
+    public static function deriveKey($algorithm, $password, $salt, $count, $key_length, $raw_output = false)
     {
-        $algorithm = strtolower($algorithm);
         if (!in_array($algorithm, hash_algos(), true)) {
             throw new \InvalidArgumentException('PBKDF2 ERROR: Invalid hash algorithm.');
         }
-        if ($count <= 0 || $key_length <= 0) {
-            throw new \InvalidArgumentException('PBKDF2 ERROR: Invalid parameters.');
+        if ($count <= 0 || $key_length < 0) {
+            throw new \InvalidArgumentException('PBKDF2 ERROR: Invalid key length parameters.');
         }
 
         if (function_exists('hash_pbkdf2')) {
@@ -47,6 +46,9 @@ class PBKDF2
         }
 
         $hash_length = strlen(hash($algorithm, '', true));
+        if (0 === $key_length) {
+            $key_length = $hash_length;
+        }
         $block_count = ceil($key_length / $hash_length);
 
         $output = '';

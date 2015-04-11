@@ -11,6 +11,7 @@ Password Based Key Derivation Function 2 (PBKDF2)
 [![Latest Stable Version](https://poser.pugx.org/Spomky-Labs/pbkdf2/v/stable.png)](https://packagist.org/packages/Spomky-Labs/pbkdf2) [![Total Downloads](https://poser.pugx.org/Spomky-Labs/pbkdf2/downloads.png)](https://packagist.org/packages/Spomky-Labs/pbkdf2) [![Latest Unstable Version](https://poser.pugx.org/Spomky-Labs/pbkdf2/v/unstable.png)](https://packagist.org/packages/Spomky-Labs/pbkdf2) [![License](https://poser.pugx.org/Spomky-Labs/pbkdf2/license.png)](https://packagist.org/packages/Spomky-Labs/pbkdf2)
 
 This library implements the PBKDF2 algorithm ([RFC2898](http://www.ietf.org/rfc/rfc2898.txt) and [RFC6070](http://www.ietf.org/rfc/rfc6070.txt)).
+Please note that if you use PHP 5.5+, this library is useless. From PHP 5.5, you can use `hash_pbkdf2` directly.
 
 ## The Release Process ##
 
