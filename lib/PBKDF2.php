@@ -13,11 +13,12 @@ class PBKDF2
      * This implementation of PBKDF2 was originally created by defuse.ca
      * With improvements by variations-of-shadow.com.
      *
-     * @param string  $algorithm  The hash algorithm to use. For supported hash algorithms, see hash_algos().
-     * @param string  $password   The password.
-     * @param string  $salt       A salt that is unique to the password.
-     * @param integer $count      Iteration count. Higher is better, but slower.
-     * @param integer $key_length The length of the derived key in bytes.
+     * @param string $algorithm  The hash algorithm to use. For supported hash algorithms, see hash_algos().
+     * @param string $password   The password.
+     * @param string $salt       A salt that is unique to the password.
+     * @param int    $count      Iteration count. Higher is better, but slower.
+     * @param int    $key_length The length of the derived key in bytes.
+     * @param bool   $raw_output If true, the result is in binary format, else en hex.
      *
      * @return string A $key_length-byte key derived from the password and salt.
      *
@@ -27,7 +28,7 @@ class PBKDF2
      * @see https://www.ietf.org/rfc/rfc6070.txt
      * @see http://php.net/manual/en/function.hash-hmac.php
      */
-    public static function deriveKey($algorithm, $password, $salt, $count, $key_length)
+    public static function pbkdf2($algorithm, $password, $salt, $count, $key_length, $raw_output = false)
     {
         $algorithm = strtolower($algorithm);
         if (!in_array($algorithm, hash_algos(), true)) {
@@ -37,12 +38,20 @@ class PBKDF2
             throw new \InvalidArgumentException('PBKDF2 ERROR: Invalid parameters.');
         }
 
-        $hash_length = strlen(hash($algorithm, "", true));
+        if (function_exists('hash_pbkdf2')) {
+            if (!$raw_output) {
+                $key_length = $key_length * 2;
+            }
+
+            return hash_pbkdf2($algorithm, $password, $salt, $count, $key_length, $raw_output);
+        }
+
+        $hash_length = strlen(hash($algorithm, '', true));
         $block_count = ceil($key_length / $hash_length);
 
-        $output = "";
+        $output = '';
         for ($i = 1; $i <= $block_count; $i++) {
-            $last = $salt.pack("N", $i);
+            $last = $salt.pack('N', $i);
             $last = $xorsum = hash_hmac($algorithm, $last, $password, true);
             for ($j = 1; $j < $count; $j++) {
                 $xorsum ^= ($last = hash_hmac($algorithm, $last, $password, true));
@@ -50,6 +59,12 @@ class PBKDF2
             $output .= $xorsum;
         }
 
-        return substr($output, 0, $key_length);
+        $raw = substr($output, 0, $key_length);
+
+        if ($raw_output) {
+            return $raw;
+        }
+
+        return bin2hex($raw);
     }
 }
