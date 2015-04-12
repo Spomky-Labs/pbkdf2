@@ -28,12 +28,14 @@ It has been successfully tested using `PHP 5.3` to `PHP 5.6`, `PHP 7.0` and `HHV
 
 The preferred way to install this library is to rely on Composer:
 
-    {
-        "require": {
-            // ...
-            "spomky-labs/pbkdf2": "~1.0"
-        }
+```sh
+{
+    "require": {
+        // ...
+        "spomky-labs/pbkdf2": "~1.0"
     }
+}
+```
 
 ## How to use ##
 
@@ -45,4 +47,4 @@ Requests for new features, bug fixed and all other ideas to make this library us
 
 ## Licence
 
-This software is release under MIT licence.
+This software is release under [MIT licence](LICENSE).
