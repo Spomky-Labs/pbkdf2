@@ -9,7 +9,7 @@ class PBKDF2
 {
     /**
      * PBKDF2 key derivation function as defined by RSA's PKCS #5: RFC 2898
-     * Test vectors can be found i the RFC 6070
+     * Test vectors can be found in the RFC 6070
      * This implementation of PBKDF2 was originally created by defuse.ca
      * With improvements by variations-of-shadow.com.
      *
@@ -27,22 +27,23 @@ class PBKDF2
      * @see https://www.ietf.org/rfc/rfc2898.txt
      * @see https://www.ietf.org/rfc/rfc6070.txt
      * @see http://php.net/manual/en/function.hash-hmac.php
+     * @see http://php.net/manual/en/function.hash-pbkdf2.php
      */
     public static function deriveKey($algorithm, $password, $salt, $count, $key_length, $raw_output = false)
     {
-        if (!in_array($algorithm, hash_algos(), true)) {
-            throw new \InvalidArgumentException('PBKDF2 ERROR: Invalid hash algorithm.');
-        }
-        if ($count <= 0 || $key_length < 0) {
-            throw new \InvalidArgumentException('PBKDF2 ERROR: Invalid key length parameters.');
-        }
-
         if (function_exists('hash_pbkdf2')) {
             if (!$raw_output) {
                 $key_length = $key_length * 2;
             }
 
             return hash_pbkdf2($algorithm, $password, $salt, $count, $key_length, $raw_output);
+        }
+
+        if (!in_array($algorithm, hash_algos(), true)) {
+            throw new \InvalidArgumentException('PBKDF2 ERROR: Invalid hash algorithm.');
+        }
+        if ($count <= 0 || $key_length < 0) {
+            throw new \InvalidArgumentException('PBKDF2 ERROR: Invalid key length parameters.');
         }
 
         $hash_length = strlen(hash($algorithm, '', true));
