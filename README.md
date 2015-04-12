@@ -37,7 +37,7 @@ The preferred way to install this library is to rely on Composer:
 
 ## How to use ##
 
-Take a look at [How to use](doc/Use.md) to use this random string generator.
+Take a look at [How to use](doc/Use.md) to use this library.
 
 ## Contributing
 
