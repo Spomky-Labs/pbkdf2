@@ -1,9 +1,10 @@
 Password Based Key Derivation Function 2 (PBKDF2)
 =================================================
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Spomky-Labs/pbkdf2/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Spomky-Labs/pbkdf2/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/Spomky-Labs/pbkdf2/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Spomky-Labs/pbkdf2/?branch=master)
-[![Build Status](https://scrutinizer-ci.com/g/Spomky-Labs/pbkdf2/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Spomky-Labs/pbkdf2/build-status/master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Spomky-Labs/pbkdf2/badges/quality-score.png?b=release%2Fv1.0.0)](https://scrutinizer-ci.com/g/Spomky-Labs/pbkdf2/?branch=release%2Fv1.0.0)
+[![Code Coverage](https://scrutinizer-ci.com/g/Spomky-Labs/pbkdf2/badges/coverage.png?b=release%2Fv1.0.0)](https://scrutinizer-ci.com/g/Spomky-Labs/pbkdf2/?branch=release%2Fv1.0.0)
+
+[![Build Status](https://travis-ci.org/Spomky-Labs/pbkdf2.svg?branch=release%2Fv1.0.0)](https://travis-ci.org/Spomky-Labs/pbkdf2)
 [![HHVM Status](http://hhvm.h4cc.de/badge/Spomky-Labs/pbkdf2.png)](http://hhvm.h4cc.de/package/Spomky-Labs/pbkdf2)
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/a8991b9b-ac35-402f-a3cc-21c89787f840/big.png)](https://insight.sensiolabs.com/projects/a8991b9b-ac35-402f-a3cc-21c89787f840)
