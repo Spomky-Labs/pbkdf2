@@ -12,12 +12,12 @@ class VectorTest extends \PHPUnit_Framework_TestCase
     public function testVector1()
     {
         $algorithm = 'sha1';
-        $password  = 'password';
-        $salt      = 'salt';
-        $count     = 1;
-        $dkLen     = 0;
-        $hex_expected  = '0c60c80f961f0e71f3a9b524af6012062fe037a6';
-        $raw_expected  = pack('H*', $hex_expected);
+        $password = 'password';
+        $salt = 'salt';
+        $count = 1;
+        $dkLen = 0;
+        $hex_expected = '0c60c80f961f0e71f3a9b524af6012062fe037a6';
+        $raw_expected = pack('H*', $hex_expected);
 
         $this->assertSame($hex_expected, PBKDF2::deriveKey($algorithm, $password, $salt, $count, $dkLen));
         $this->assertSame($raw_expected, PBKDF2::deriveKey($algorithm, $password, $salt, $count, $dkLen, true));
@@ -26,12 +26,12 @@ class VectorTest extends \PHPUnit_Framework_TestCase
     public function testVector2()
     {
         $algorithm = 'sha1';
-        $password  = 'password';
-        $salt      = 'salt';
-        $count     = 2;
-        $dkLen     = 0;
-        $hex_expected  = 'ea6c014dc72d6f8ccd1ed92ace1d41f0d8de8957';
-        $raw_expected  = pack('H*', $hex_expected);
+        $password = 'password';
+        $salt = 'salt';
+        $count = 2;
+        $dkLen = 0;
+        $hex_expected = 'ea6c014dc72d6f8ccd1ed92ace1d41f0d8de8957';
+        $raw_expected = pack('H*', $hex_expected);
 
         $this->assertSame($hex_expected, PBKDF2::deriveKey($algorithm, $password, $salt, $count, $dkLen));
         $this->assertSame($raw_expected, PBKDF2::deriveKey($algorithm, $password, $salt, $count, $dkLen, true));
@@ -40,12 +40,12 @@ class VectorTest extends \PHPUnit_Framework_TestCase
     public function testVector3()
     {
         $algorithm = 'sha1';
-        $password  = 'password';
-        $salt      = 'salt';
-        $count     = 4096;
-        $dkLen     = 0;
-        $hex_expected  = '4b007901b765489abead49d926f721d065a429c1';
-        $raw_expected  = pack('H*', $hex_expected);
+        $password = 'password';
+        $salt = 'salt';
+        $count = 4096;
+        $dkLen = 0;
+        $hex_expected = '4b007901b765489abead49d926f721d065a429c1';
+        $raw_expected = pack('H*', $hex_expected);
 
         $this->assertSame($hex_expected, PBKDF2::deriveKey($algorithm, $password, $salt, $count, $dkLen));
         $this->assertSame($raw_expected, PBKDF2::deriveKey($algorithm, $password, $salt, $count, $dkLen, true));
@@ -68,12 +68,12 @@ class VectorTest extends \PHPUnit_Framework_TestCase
     public function testVector5()
     {
         $algorithm = 'sha1';
-        $password  = 'passwordPASSWORDpassword';
-        $salt      = 'saltSALTsaltSALTsaltSALTsaltSALTsalt';
-        $count     = 4096;
-        $dkLen     = 25;
-        $hex_expected  = '3d2eec4fe41c849b80c8d83662c0e44a8b291a964cf2f07038';
-        $raw_expected  = pack('H*', $hex_expected);
+        $password = 'passwordPASSWORDpassword';
+        $salt = 'saltSALTsaltSALTsaltSALTsaltSALTsalt';
+        $count = 4096;
+        $dkLen = 25;
+        $hex_expected = '3d2eec4fe41c849b80c8d83662c0e44a8b291a964cf2f07038';
+        $raw_expected = pack('H*', $hex_expected);
 
         $this->assertSame($hex_expected, PBKDF2::deriveKey($algorithm, $password, $salt, $count, $dkLen));
         $this->assertSame($raw_expected, PBKDF2::deriveKey($algorithm, $password, $salt, $count, $dkLen, true));
@@ -82,12 +82,12 @@ class VectorTest extends \PHPUnit_Framework_TestCase
     public function testVector6()
     {
         $algorithm = 'sha1';
-        $password  = "pass\x00word";
-        $salt      = "sa\x00lt";
-        $count     = 4096;
-        $dkLen     = 16;
-        $hex_expected  = '56fa6aa75548099dcc37d7f03425e0c3';
-        $raw_expected  = pack('H*', $hex_expected);
+        $password = "pass\x00word";
+        $salt = "sa\x00lt";
+        $count = 4096;
+        $dkLen = 16;
+        $hex_expected = '56fa6aa75548099dcc37d7f03425e0c3';
+        $raw_expected = pack('H*', $hex_expected);
 
         $this->assertSame($hex_expected, PBKDF2::deriveKey($algorithm, $password, $salt, $count, $dkLen));
         $this->assertSame($raw_expected, PBKDF2::deriveKey($algorithm, $password, $salt, $count, $dkLen, true));

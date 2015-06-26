@@ -1,7 +1,7 @@
 How to use
 ==========
 
-This library provides a class with a single method: `PBKDF2::deriveKey`. Arguments are the same as native PHP `hash_pbkdf`.
+This library provides a class with a single method: `PBKDF2::deriveKey`. Arguments are the same as native PHP [`hash_pbkdf`](http://php.net/manual/en/function.hash-pbkdf2.php).
 
 ```php
 <?php

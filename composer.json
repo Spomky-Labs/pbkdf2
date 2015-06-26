@@ -16,11 +16,6 @@
             "PBKDF2\\":  "lib/"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "PBKDF2\\Tests\\":  "tests/"
-        }
-    },
     "require": {
         "php": ">=5.3"
     },

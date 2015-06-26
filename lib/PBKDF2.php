@@ -43,10 +43,10 @@ class PBKDF2
         $block_count = ceil($key_length / $hash_length);
 
         $output = '';
-        for ($i = 1; $i <= $block_count; $i++) {
+        for ($i = 1; $i <= $block_count; ++$i) {
             $last = $salt.pack('N', $i);
             $last = $xorsum = hash_hmac($algorithm, $last, $password, true);
-            for ($j = 1; $j < $count; $j++) {
+            for ($j = 1; $j < $count; ++$j) {
                 $xorsum ^= ($last = hash_hmac($algorithm, $last, $password, true));
             }
             $output .= $xorsum;
