@@ -5,6 +5,8 @@ Password Based Key Derivation Function 2 (PBKDF2)
 [![Code Coverage](https://scrutinizer-ci.com/g/Spomky-Labs/pbkdf2/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Spomky-Labs/pbkdf2/?branch=master)
 
 [![Build Status](https://travis-ci.org/Spomky-Labs/pbkdf2.svg?branch=release%2Fv1.0.0)](https://travis-ci.org/Spomky-Labs/pbkdf2)
+[![StyleCI](https://styleci.io/repos/28774726/shield)](https://styleci.io/repos/28774726)
+
 [![HHVM Status](http://hhvm.h4cc.de/badge/Spomky-Labs/pbkdf2.png)](http://hhvm.h4cc.de/package/Spomky-Labs/pbkdf2)
 [![PHP 7 ready](http://php7ready.timesplinter.ch/Spomky-Labs/pbkdf2/badge.svg)](https://travis-ci.org/Spomky-Labs/pbkdf2)
 
