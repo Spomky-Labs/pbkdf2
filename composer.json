@@ -13,14 +13,15 @@
     ],
     "autoload": {
         "psr-4": {
-            "PBKDF2\\":  "lib/"
+            "PBKDF2\\":  "src/"
         }
     },
     "require": {
         "php": ">=5.3"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.5"
+        "phpunit/phpunit": "~4.5",
+        "satooshi/php-coveralls": "*"
     },
     "extra": {
         "branch-alias": {
