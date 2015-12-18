@@ -2,7 +2,7 @@ Password Based Key Derivation Function 2 (PBKDF2)
 =================================================
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Spomky-Labs/pbkdf2/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Spomky-Labs/pbkdf2/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/Spomky-Labs/pbkdf2/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Spomky-Labs/pbkdf2/?branch=master)
+[![Coverage Status](https://coveralls.io/repos/Spomky-Labs/pbkdf2/badge.svg?branch=master&service=github)](https://coveralls.io/github/Spomky-Labs/pbkdf2?branch=master)
 
 [![Build Status](https://travis-ci.org/Spomky-Labs/pbkdf2.svg?branch=release%2Fv1.0.0)](https://travis-ci.org/Spomky-Labs/pbkdf2)
 [![StyleCI](https://styleci.io/repos/28774726/shield)](https://styleci.io/repos/28774726)
