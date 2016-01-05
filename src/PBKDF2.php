@@ -44,10 +44,10 @@ final class PBKDF2
         }
 
         self::checkArguments($algorithm, $count, $key_length);
-        
+
         $raw = self::customPBKDF2($algorithm, $password, $salt, $count, $key_length);
 
-        return true === $raw_output?$raw:bin2hex($raw);
+        return true === $raw_output ? $raw : bin2hex($raw);
     }
 
     /**
