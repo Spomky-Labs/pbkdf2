@@ -45,7 +45,9 @@ final class PBKDF2
 
         self::checkArguments($algorithm, $count, $key_length);
         
-        return self::customPBKDF2($algorithm, $password, $salt, $count, $key_length, $raw_output);
+        $raw = self::customPBKDF2($algorithm, $password, $salt, $count, $key_length);
+
+        return true === $raw_output?$raw:bin2hex($raw);
     }
 
     /**
@@ -56,11 +58,10 @@ final class PBKDF2
      * @param string $salt       A salt that is unique to the password.
      * @param int    $count      Iteration count. Higher is better, but slower.
      * @param int    $key_length The length of the derived key in bytes.
-     * @param bool   $raw_output If true, the result is in binary format, else in hex. Default is false
      *
      * @return string A $key_length-byte key derived from the password and salt.
      */
-    private static function customPBKDF2($algorithm, $password, $salt, $count, $key_length, $raw_output)
+    private static function customPBKDF2($algorithm, $password, $salt, $count, $key_length)
     {
         $hash_length = strlen(hash($algorithm, '', true));
         if (0 === $key_length) {
@@ -78,13 +79,7 @@ final class PBKDF2
             $output .= $xorsum;
         }
 
-        $raw = substr($output, 0, $key_length);
-
-        if ($raw_output) {
-            return $raw;
-        }
-
-        return bin2hex($raw);
+        return substr($output, 0, $key_length);
     }
 
     /**
