@@ -14,7 +14,7 @@ namespace PBKDF2;
 /**
  * Class representing a JSON Web Token Manager.
  */
-class PBKDF2
+final class PBKDF2
 {
     /**
      * PBKDF2 key derivation function as defined by RSA's PKCS #5: RFC 2898
@@ -44,7 +44,24 @@ class PBKDF2
         }
 
         self::checkArguments($algorithm, $count, $key_length);
+        
+        return self::customPBKDF2($algorithm, $password, $salt, $count, $key_length, $raw_output);
+    }
 
+    /**
+     * Pure PHP PBKDF2 key derivation function.
+     *
+     * @param string $algorithm  The hash algorithm to use. For supported hash algorithms, see hash_algos().
+     * @param string $password   The password.
+     * @param string $salt       A salt that is unique to the password.
+     * @param int    $count      Iteration count. Higher is better, but slower.
+     * @param int    $key_length The length of the derived key in bytes.
+     * @param bool   $raw_output If true, the result is in binary format, else in hex. Default is false
+     *
+     * @return string A $key_length-byte key derived from the password and salt.
+     */
+    private static function customPBKDF2($algorithm, $password, $salt, $count, $key_length, $raw_output)
+    {
         $hash_length = strlen(hash($algorithm, '', true));
         if (0 === $key_length) {
             $key_length = $hash_length;
