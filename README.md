@@ -12,7 +12,7 @@ Password Based Key Derivation Function 2 (PBKDF2)
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/a8991b9b-ac35-402f-a3cc-21c89787f840/big.png)](https://insight.sensiolabs.com/projects/a8991b9b-ac35-402f-a3cc-21c89787f840)
 
-[![Latest Stable Version](https://poser.pugx.org/Spomky-Labs/pbkdf2/v/stable.png)](https://packagist.org/packages/Spomky-Labs/pbkdf2) [![Total Downloads](https://poser.pugx.org/Spomky-Labs/pbkdf2/downloads.png)](https://packagist.org/packages/Spomky-Labs/pbkdf2) [![Latest Unstable Version](https://poser.pugx.org/Spomky-Labs/pbkdf2/v/unstable.png)](https://packagist.org/packages/Spomky-Labs/pbkdf2) [![License](https://poser.pugx.org/Spomky-Labs/pbkdf2/license.png)](https://packagist.org/packages/Spomky-Labs/pbkdf2)
+[![Latest Stable Version](https://poser.pugx.org/Spomky-Labs/pbkdf2/v/stable.png)](https://packagist.org/packages/Spomky-Labs/pbkdf2) [![Total Downloads](https://poser.pugx.org/Spomky-Labs/pbkdf2/downloads.png)](https://packagist.org/packages/Spomky-Labs/pbkdf2) [![Latest Unstable Version](https://poser.pugx.org/Spomky-Labs/pbkdf2/v/unstable.png)](https://packagist.org/packages/Spomky-Labs/pbkdf2) [![License](https://poser.pugx.org/Spomky-Labs/pbkdf2/license.png)](https://packagist.org/packages/Spomky-Labs/pbkdf2) [![GuardRails badge](https://badges.production.guardrails.io/Spomky-Labs/pbkdf2.svg)](https://www.guardrails.io)
 
 This library implements the PBKDF2 algorithm ([RFC2898](http://www.ietf.org/rfc/rfc2898.txt) and [RFC6070](http://www.ietf.org/rfc/rfc6070.txt)).
 Please note that if you use PHP 5.5+, this library is useless. From PHP 5.5, you can use `hash_pbkdf2` directly.
